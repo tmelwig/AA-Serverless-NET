@@ -50,9 +50,11 @@ Nous allons maintenant porter ce petit programme pour pouvoir l'héberger au sei
 3. Dans l'onglet Azure de Visual Studio Code, section *FUNCTIONS* [créez un nouveau projet Azure Functions depuis Visual Studio Code](https://docs.microsoft.com/fr-fr/azure/azure-functions/create-first-function-vs-code-csharp)
     - Dans le dossier *ResizeFunction*
     - Choisissez *C#*
-    - Faites bien attention et sélectionnez **HttpTrigger** (quelques secondes sont nécessaires à l'affichage). C'est ce qui permet d'exposer la fonction en tant qu'API http.
-    - Sélectionnez *Anonymous* comme type d'authentification
-    - Nommez votre fonction **ResizeHttpTrigger**
+    - Sélectionnez le runtime *.NET 6.0* - il doit correspondre à celui sélectionné lors de l'étape 2
+    - Faites bien attention et sélectionnez `HttpTrigger` (quelques secondes sont nécessaires à l'affichage). C'est ce qui permet d'exposer la fonction en tant qu'API http.    
+    - Nommez votre fonction `ResizeHttpTrigger`
+    - Choisissez un namespace à votre guise
+    - - Sélectionnez *Anonymous* comme type d'authentification
 4. Depuis le dossier *ResizeFunction*, ajoutez le package [ImageSharp](https://github.com/SixLabors/ImageSharp).
 5. Modifiez le fichier afin de récupérer le corps (body) de la requête et le charger en tant qu'image dans ImageSharp ([aide](https://stackoverflow.com/questions/54944607/how-to-retrieve-bytes-data-from-request-body-in-azure-function-app))
     - Pour renvoyer les octets de la nouvelle image en tant que réponse à la requête, utilisez **return new FileContentResult(targetImageBytes, "image/jpeg");**
@@ -69,7 +71,7 @@ Récupérez l'adresse de votre fonction depuis le portail Azure en allant sur vo
 
 > curl --data-binary "@chaussures_abimees.jpg" -X POST "https://votrefonction.azurewebsites.net/api/ResizeHttpTrigger?w=100&h=100" -v > output.jpeg
 
-7. (optionnel) Changez **AuthorizationLevel.Anonymous** à **AuthorizationLevel.Function** puis récupérez la clé d'API de votre fonction sur le portail. Modifiez ensuite votre requête pour qu'elle s'authentifie avec succès. 
+7. (optionnel) Changez **AuthorizationLevel.Anonymous** à **AuthorizationLevel.Function** puis récupérez la clé d'API de votre fonction sur le [portail Azure](https://portal.azure.com). Modifiez ensuite votre requête pour qu'elle s'authentifie avec succès. 
 
 ### 5. Intégration avec Logic Apps
 Le web service étant désormais déployé, voyons comment le réutiliser dans un autre scénario. Nous allons pour cela créer une Logic App (également du serverless) qui surveillera le container d'un Blob Storage Account et déclenchera un appel à notre Azure Function .NET dès qu'un fichier y sera déposé.
