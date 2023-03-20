@@ -43,8 +43,8 @@ Nous allons maintenant porter ce petit programme pour pouvoir l'héberger au sei
 1. Créez un nouveau dossier local *ResizeFunction*
 2. Retournez à la page d'accueil du portail
     - Créez une Function App (ex: *nomprenom-fa*)
-    - Ciblant *.NET Core 6*
-    - Peu importe la localisation géographique
+    - Ciblant *.NET Core 6* et *Linux*
+    - Sur la région *France Central*
     - Laissez Azure créer un nouveau Storage Account pour héberger le code de la fonction
     - Sélectionnez un hosting *Consumption*
 3. Dans l'onglet Azure de Visual Studio Code, section *FUNCTIONS* [créez un nouveau projet Azure Functions depuis Visual Studio Code](https://docs.microsoft.com/fr-fr/azure/azure-functions/create-first-function-vs-code-csharp)
