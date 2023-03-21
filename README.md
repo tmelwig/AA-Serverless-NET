@@ -8,8 +8,8 @@ Installez les éléments suivants:
 - [Azure Functions extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
 
 ### 1. Hello World!
-1. Suivez les [instructions officielles](https://docs.microsoft.com/en-us/dotnet/core/get-started) pour créer votre premier programme en .NET
-2. Naviguez vers le dossier *sample1* et modifiez le programme en y ajoutant une classe *Personne* avec (Testez le snippet *prop* puis la touche *TAB* ):
+1. Suivez les [instructions officielles](https://docs.microsoft.com/en-us/dotnet/core/get-started) pour créer votre premier programme en .NET. ⚠️ Ajoutez le paramètre `--use-program-main` avec le `dotnet new` pour créer un programme initial avec une structure qui vous facilitera le reste du TP.
+3. Naviguez vers le dossier *sample1* et modifiez le programme en y ajoutant une classe *Personne* avec (Testez le snippet *prop* puis la touche *TAB* ):
     1. Une propriété **nom** de type *string*
     2. Une propriété **age** de type *int*
     3. (optionnel) Une méthode `Hello(bool isLowercase)` qui renvoit **"hello *name*, you are *age*"** si **isLowercase** vaut *true*, ou la même chaîne mais en majuscule sinon.
