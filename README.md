@@ -3,7 +3,7 @@
 ### Pré-requis
 Installez les éléments suivants:
 
-- [.NET Core 7.0](https://dotnet.microsoft.com/download/dotnet-core)
+- [.NET Core 6.0](https://dotnet.microsoft.com/download/dotnet-core) (vérifiez que la version de .NET est supportée par Azure Functions)
 - [Visual Studio Code](https://code.visualstudio.com/)
 - [Azure Functions extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
 
@@ -55,10 +55,8 @@ Nous allons maintenant porter ce petit programme pour pouvoir l'héberger au sei
     - Nommez votre fonction `ResizeHttpTrigger`
     - Choisissez un namespace à votre guise
     - - Sélectionnez *Anonymous* comme type d'authentification
-4. Editez le fichier .csproj et dans la section **PropertyGroup** ajoutez la ligne:
-```<GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>```
-5. Depuis le dossier *ResizeFunction*, ajoutez le package [ImageSharp](https://github.com/SixLabors/ImageSharp).
-6. Modifiez le fichier afin de récupérer le corps (body) de la requête et le charger en tant qu'image dans ImageSharp ([aide](https://stackoverflow.com/questions/54944607/how-to-retrieve-bytes-data-from-request-body-in-azure-function-app))
+4. Depuis le dossier *ResizeFunction*, ajoutez le package [ImageSharp](https://github.com/SixLabors/ImageSharp).
+5. Modifiez le fichier afin de récupérer le corps (body) de la requête et le charger en tant qu'image dans ImageSharp ([aide](https://stackoverflow.com/questions/54944607/how-to-retrieve-bytes-data-from-request-body-in-azure-function-app))
     - Pour renvoyer les octets de la nouvelle image en tant que réponse à la requête, utilisez **return new FileContentResult(targetImageBytes, "image/jpeg");**
     - Ajoutez les paramètres d'URL **h** et **w** qui permettent à l'appelant de spécifier les dimensions cibles
     - Si vous avez des difficultés, collez le contenu du [fichier préparé](https://github.com/lvovan/AA-Serverless-NET/blob/master/ResizeHttpTrigger-incomplete.cs) qui implémente pour vous les éléments très techniques/tuyaux
@@ -69,11 +67,11 @@ Nous allons maintenant porter ce petit programme pour pouvoir l'héberger au sei
 
 
 Récupérez l'adresse de votre fonction depuis le portail Azure en allant sur votre Azure Function, dans la section **Functions**, sélectionnez **ResizeHttpTrigger** et cliquez sur le bouton *Get Function Url* en haut de la page
-7. Déployez votre code et appelez fonction avec curl ou via un testeur de web service tel que [Postman](https://www.postman.com/downloads/).
+6. Déployez votre code et appelez fonction avec curl ou via un testeur de web service tel que [Postman](https://www.postman.com/downloads/).
 
 > curl --data-binary "@chaussures_abimees.jpg" -X POST "https://votrefonction.azurewebsites.net/api/ResizeHttpTrigger?w=100&h=100" -v > output.jpeg
 
-8. (optionnel) Changez **AuthorizationLevel.Anonymous** à **AuthorizationLevel.Function** puis récupérez la clé d'API de votre fonction sur le [portail Azure](https://portal.azure.com). Modifiez ensuite votre requête pour qu'elle s'authentifie avec succès. 
+7. (optionnel) Changez **AuthorizationLevel.Anonymous** à **AuthorizationLevel.Function** puis récupérez la clé d'API de votre fonction sur le [portail Azure](https://portal.azure.com). Modifiez ensuite votre requête pour qu'elle s'authentifie avec succès. 
 
 ### 5. Intégration avec Logic Apps
 Le web service étant désormais déployé, voyons comment le réutiliser dans un autre scénario. Nous allons pour cela créer une Logic App (également du serverless) qui surveillera le container d'un Blob Storage Account et déclenchera un appel à notre Azure Function .NET dès qu'un fichier y sera déposé.
