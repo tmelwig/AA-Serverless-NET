@@ -95,4 +95,4 @@ Le TP sera noté et rendu de la manière suivante:
     - *Bonus 1* : une courte vidéo montrant le gain de performance obtenu par la parallélisation sur le traitement local (section 3.3)
     - *Bonus 2* : une courte vidéo démontrant le fonctionnement de la Logic App lisant des images depuis le Blob Storage (dépôt de plusieurs fichiers, détails du run de la Logic App, apparition des fichiers traités dans le Blob Storage)
     
-  _Note:_ Vous pouvez utiliser PowerPoint pour [capturer facilement votre écran](https://www.youtube.com/watch?v=ZCd9fO72vCg).
+  _Note:_ Vous pouvez utiliser PowerPoint pour [capturer facilement votre écran](https://www.youtube.com/watch?v=ZCd9fO72vCg). Vous pouvez partager la vidéo sur Teams.
