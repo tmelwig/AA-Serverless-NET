@@ -86,3 +86,15 @@ Le web service étant désormais déployé, voyons comment le réutiliser dans u
 3. Testez votre application en déposant plusieurs fichiers dans le container du Storage Account
 4. (optionnel) Ajoutez une condition filtrant les fichiers entrant, en s'assurant que le traitement n'ai lieu que s'ils ont pour extension **.jpg**, **.png**, ou **.bmp**.
 5. (optionnel) Le nommage préalablement choisi n'est pas toujours correct car les fichiers créés sont au format jpeg alors que les fichiers sources peuvent être dans un autre format d'image. Pour corriger cela tout en rapprochant alphabétiquement le nom du fichier source et du fichier créé, modifiez le nommage du nouveau fichier ainsi: `[nom_du_fichier_source_sans_extension]-resized.jpeg`
+
+### 6. Rendu
+Le TP sera noté et rendu de la manière suivante:
+ - Par binôme
+ - M'envoyer les éléments suivants par mail:
+    - Les noms des membres du binôme
+    - un `.zip` ou `.tar.gz` du code (ne pas inclure les dossiers `bin` et `obj`)
+    - La ou les commandes `cURL` ou `wget` qui permet d'appeler votre Azure Function avec les différentes options possibles
+    - *Bonus 1* : une courte vidéo montrant le gain de performance obtenu par la parallélisation sur le traitement local (section 3.3)
+    - *Bonus 2* : une courte vidéo démontrant le fonctionnement de la Logic App lisant des images depuis le Blob Storage.
+    
+  _Note:_ Vous pouvez utiliser PowerPoint pour [capturer facilement votre écran](https://www.youtube.com/watch?v=ZCd9fO72vCg).
