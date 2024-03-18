@@ -88,6 +88,7 @@ Le web service étant désormais déployé, voyons comment le réutiliser dans u
 ### 6. Rendu - 5 avril 2024
 Le TP sera noté et rendu de la manière suivante:
  - Par binôme
+ - Pensez à [bien gérer les exceptions](https://learn.microsoft.com/en-us/dotnet/standard/exceptions/best-practices-for-exceptions)
  - M'envoyer les éléments suivants par mail:
     - Les noms des membres du binôme
     - un `.zip` ou `.tar.gz` du code (ne pas inclure les dossiers `bin` et `obj`)
