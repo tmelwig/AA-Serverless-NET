@@ -3,7 +3,7 @@
 ### Pré-requis
 Installez les éléments suivants:
 
-- [.NET Core 6.0](https://dotnet.microsoft.com/download/dotnet-core) (vérifiez que la version de .NET est supportée par Azure Functions)
+- [.NET Core 7.0 ou 8.0](https://dotnet.microsoft.com/download/dotnet-core) (vérifiez que la version de .NET est supportée par Azure Functions)
 - [Visual Studio Code](https://code.visualstudio.com/)
 - [Azure Functions extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
 
