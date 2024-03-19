@@ -64,8 +64,6 @@ Nous allons maintenant porter ce petit programme pour pouvoir l'héberger au sei
     - Complétez les différents TODO
     - Récupérez les paramètres **w** et **h** de la requête avec `req.Query[key]` et utilisez les respectivement comme dimensions cibles pour les largeurs et hauteur de la nouvelle image. Attention au typage!
     - Les MIME types sont documentés [ici](https://docs.w3cub.com/http/basics_of_http/mime_types/complete_list_of_mime_types.html)
-
-
 Récupérez l'adresse de votre fonction depuis le portail Azure en allant sur votre Azure Function, dans la section **Functions**, sélectionnez **ResizeHttpTrigger** et cliquez sur le bouton *Get Function Url* en haut de la page
 6. Déployez votre code et appelez fonction avec curl ou via un testeur de web service tel que [Postman](https://www.postman.com/downloads/).
 
