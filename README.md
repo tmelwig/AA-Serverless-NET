@@ -43,7 +43,7 @@ Nous allons maintenant porter ce petit programme pour pouvoir l'héberger au sei
 1. Créez un nouveau dossier local *ResizeFunction*
 2. Retournez à la page d'accueil du portail
     - Créez une Function App (ex: *nomprenom-fa*)
-    - Ciblant *.NET Core 6* et *Linux*
+    - Ciblant *.NET Core 6* (*pas* isolated) et *Linux*
     - Sur la région *France Central*
     - Laissez Azure créer un nouveau Storage Account pour héberger le code de la fonction
     - Sélectionnez un hosting *Consumption*
