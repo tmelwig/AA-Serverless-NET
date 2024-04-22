@@ -94,7 +94,9 @@ Le TP sera noté et rendu de la manière suivante:
         - Sujet: `TPDOTNET` suivi de vos noms (ex: `TPDOTNET - alice, bob, charles`)
         - CC: Les membres du binôme ou trinôme
         - En pj. l'unique fichier de votre Azure Functions (`ResizeHttpTrigger.cs`)
-        - Corps du message: L'URL https de votre fonction
+        - Corps du message:
+            - L'URL https de votre fonction
+            - Le lien vers votre Logic App (celle qui apparaît dans la barre d'adresse du navigateur quand vous êtes sur votre Logic App)
     - Les bonus sont soumis sous forme de vidéo Youtube [unlisted](https://support.google.com/youtube/answer/157177?sjid=4795422317307104878-EU#unlisted&zippy=%2Cunlisted-videos) ne dépassant pas 3 minutes chacune (le plus court le mieux)
         - *Bonus 1* : une vidéo démontrant le gain de performance obtenu par la parallélisation sur le traitement local (section 3.3)
         - *Bonus 2* : une vidéo démontrant le fonctionnement de la Logic App lisant des images depuis le Blob Storage (dépôt de plusieurs fichiers, détails du run de la Logic App, apparition des fichiers traités dans le Blob Storage)
