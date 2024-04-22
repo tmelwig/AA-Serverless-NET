@@ -58,7 +58,7 @@ Nous allons maintenant porter ce petit programme pour pouvoir l'héberger au sei
 4. Depuis le dossier *ResizeFunction*, ajoutez le package [ImageSharp](https://github.com/SixLabors/ImageSharp).
 5. Modifiez le fichier afin de récupérer le corps (body) de la requête et le charger en tant qu'image dans ImageSharp ([aide](https://stackoverflow.com/questions/54944607/how-to-retrieve-bytes-data-from-request-body-in-azure-function-app))
     - Pour renvoyer les octets de la nouvelle image en tant que réponse à la requête, utilisez **return new FileContentResult(targetImageBytes, "image/jpeg");**
-    - Ajoutez les paramètres d'URL **h** et **w** qui permettent à l'appelant de spécifier les dimensions cibles
+    - Ajoutez les paramètres d'URL **h** et **w** qui permettent à l'appelant de spécifier les dimensions cibles. Ne modifiez pas les noms de ces paramètres: gardez bien **w** et **h** car cela est utilisé pour la notation.
     - Si vous avez des difficultés, collez le contenu du [fichier préparé](https://github.com/lvovan/AA-Serverless-NET/blob/master/ResizeHttpTrigger-incomplete.cs) qui implémente pour vous les éléments très techniques/tuyaux
 
     - Complétez les différents TODO
@@ -85,13 +85,18 @@ Le web service étant désormais déployé, voyons comment le réutiliser dans u
 
 ### 6. Rendu - 5 avril 2024
 Le TP sera noté et rendu de la manière suivante:
- - Par binôme
+ - Par binôme ou trinôme
  - Pensez à [bien gérer les exceptions](https://learn.microsoft.com/en-us/dotnet/standard/exceptions/best-practices-for-exceptions)
- - M'envoyer les éléments suivants par mail:
-    - Les noms des membres du binôme
-    - un `.zip` ou `.tar.gz` du code (ne pas inclure les dossiers `bin` et `obj`)
-    - La ou les commandes `cURL` ou `wget` qui permet d'appeler votre Azure Function avec les différentes options possibles
-    - *Bonus 1* : une courte vidéo montrant le gain de performance obtenu par la parallélisation sur le traitement local (section 3.3)
-    - *Bonus 2* : une courte vidéo démontrant le fonctionnement de la Logic App lisant des images depuis le Blob Storage (dépôt de plusieurs fichiers, détails du run de la Logic App, apparition des fichiers traités dans le Blob Storage)
+ - **Bien suivre les instructions** car une partie de l'évaluation est automatisée.
+ - Le rendu doit s'effectuer comme décrit ci-dessous.
+    - Envoi du rendu par mail:
+        - Destinataire: mon adresse ...@centralesupelec.fr
+        - Sujet: `TPDOTNET` suivi de vos noms (ex: `TPDOTNET - alice, bob, charles`)
+        - CC: Les membres du binôme ou trinôme
+        - En pj. l'unique fichier de votre Azure Functions (`ResizeHttpTrigger.cs`)
+        - Corps du message: L'URL https de votre fonction
+    - Les bonus sont soumis sous forme de vidéo Youtube [unlisted](https://support.google.com/youtube/answer/157177?sjid=4795422317307104878-EU#unlisted&zippy=%2Cunlisted-videos) ne dépassant pas 3 minutes chacune (le plus court le mieux)
+        - *Bonus 1* : une vidéo démontrant le gain de performance obtenu par la parallélisation sur le traitement local (section 3.3)
+        - *Bonus 2* : une vidéo démontrant le fonctionnement de la Logic App lisant des images depuis le Blob Storage (dépôt de plusieurs fichiers, détails du run de la Logic App, apparition des fichiers traités dans le Blob Storage)
     
   _Note:_ Vous pouvez utiliser PowerPoint pour [capturer facilement votre écran](https://www.youtube.com/watch?v=ZCd9fO72vCg). Vous pouvez partager la vidéo sur Teams.
