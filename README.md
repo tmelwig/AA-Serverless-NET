@@ -58,15 +58,16 @@ Nous allons maintenant porter ce petit programme pour pouvoir l'héberger au sei
 
 1. Créez un nouveau dossier local *ResizeFunction*
 2. Retournez à la page d'accueil du portail
-    - Créez une Function App (ex: *nomprenom-fa*)
-    - Ciblant *.NET Core 6 ou supérieur* (*pas* isolated) et *Linux*
+    - Créez une Function App (ex: *nomprenom-fa*) de type *Consumption*
+    - Ciblant *.NET 8 (LTS) in-process model*
     - Sur la région *France Central*
+    - Système d'exploitation *Linux*
     - Laissez Azure créer un nouveau Storage Account pour héberger le code de la fonction
     - Sélectionnez un hosting *Consumption*
 3. Dans l'onglet Azure de Visual Studio Code, section *FUNCTIONS* [créez un nouveau projet Azure Functions depuis Visual Studio Code](https://docs.microsoft.com/fr-fr/azure/azure-functions/create-first-function-vs-code-csharp)
     - Dans le dossier *ResizeFunction*
     - Choisissez *C#*
-    - Sélectionnez le runtime *.NET 6.0* - il doit correspondre à celui sélectionné lors de l'étape 2
+    - Sélectionnez le runtime *.NET 8.0* - il doit correspondre à celui sélectionné lors de l'étape 2
     - Faites bien attention et sélectionnez `HttpTrigger` (quelques secondes sont nécessaires à l'affichage). C'est ce qui permet d'exposer la fonction en tant qu'API http.    
     - Nommez votre fonction `ResizeHttpTrigger`
     - Choisissez un namespace à votre guise
@@ -85,7 +86,9 @@ Récupérez l'adresse de votre fonction depuis le portail Azure en allant sur vo
 
 > curl --data-binary "@chaussures_abimees.jpg" -X POST "https://votrefonction.azurewebsites.net/api/ResizeHttpTrigger?w=100&h=100" -v > output.jpeg
 
-7. (optionnel) Changez **AuthorizationLevel.Anonymous** à **AuthorizationLevel.Function** puis récupérez la clé d'API de votre fonction sur le [portail Azure](https://portal.azure.com). Modifiez ensuite votre requête pour qu'elle s'authentifie avec succès. 
+7. (optionnel) Changez **AuthorizationLevel.Anonymous** à **AuthorizationLevel.Function** puis récupérez la clé d'API de votre fonction sur le [portail Azure](https://portal.azure.com). Modifiez ensuite votre requête pour qu'elle s'authentifie avec succès.
+
+_Conseil_: Veillez à ce que votre fonction soit propre avec notamment une bonne gestion des erreurs (notamment des paramètres d'entrée invalide) et des retours de [statuts HTTP](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes) adéquats. Votre fonction ne devrait par exemple jamais renvoyer de statuts 500.
 
 ### 5. Intégration avec Logic Apps
 Le web service étant désormais déployé, voyons comment le réutiliser dans un autre scénario. Nous allons pour cela créer une Logic App (également du serverless) qui surveillera le container d'un Blob Storage Account et déclenchera un appel à notre Azure Function .NET dès qu'un fichier y sera déposé.
