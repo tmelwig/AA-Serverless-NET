@@ -1,6 +1,22 @@
 # TP .NET et Serverless
 
-### Pré-requis
+## Pré-requis
+
+### Codespace (recommandé)
+Afin de simplifier le démarrage un [GitHub Codespace](https://github.com/features/codespaces) a été préconfiguré et nécessite un compte GitHub. Notons que les étudiants bénéficient de certains avantages, dont des heures Codespace supplémenaires, via le programme [GitHub Student Developer Pack](https://education.github.com/pack).
+
+1. Effectuez un [fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo) privé de ce repository, fork sur lequel vous travaillerez pour toute la durée du TP.
+   
+   ![image](https://github.com/user-attachments/assets/cb2263fe-19f9-4005-98fe-fcad811a0d5e)
+
+3. Assurez-vous d'être dans votre fork en vérifiant l'URL du navigateur.
+
+4. Créez votre Codespace en cliquant sur *Create a codespace on main*. Choisissez la plus petite machine possible: le TP ne demande pas beaucoup de ressource car les tâches de calcul sont surtout effectuées par les bases de données auquelles vous vous connecterez. Si vous utilisez Firefox, désactivez l'*Enhanced Tracking Protection* sur l'URL de votre Codespace sans quoi vous ne pourrez vous y connecter.
+
+![image](https://github.com/user-attachments/assets/337199dd-4223-4326-9e7d-4180c0792082)
+
+
+### Installation en local
 Installez les éléments suivants:
 
 - [.NET Core 7.0 ou 8.0](https://dotnet.microsoft.com/download/dotnet-core) (vérifiez que la version de .NET est supportée par Azure Functions)
@@ -83,7 +99,7 @@ Le web service étant désormais déployé, voyons comment le réutiliser dans u
 4. (optionnel) Ajoutez une condition filtrant les fichiers entrant, en s'assurant que le traitement n'ai lieu que s'ils ont pour extension **.jpg**, **.png**, ou **.bmp**.
 5. (optionnel) Le nommage préalablement choisi n'est pas toujours correct car les fichiers créés sont au format jpeg alors que les fichiers sources peuvent être dans un autre format d'image. Pour corriger cela tout en rapprochant alphabétiquement le nom du fichier source et du fichier créé, modifiez le nommage du nouveau fichier ainsi: `[nom_du_fichier_source_sans_extension]-resized.jpeg`
 
-### 6. Rendu - 5 avril 2024
+### 6. Rendu - 4 avril 2025
 Le TP sera noté et rendu de la manière suivante:
  - Par binôme ou trinôme
  - Pensez à [bien gérer les exceptions](https://learn.microsoft.com/en-us/dotnet/standard/exceptions/best-practices-for-exceptions)
@@ -99,7 +115,7 @@ Le TP sera noté et rendu de la manière suivante:
             2. Le lien vers votre Logic App (celle qui apparaît dans la barre d'adresse du navigateur quand vous êtes sur votre Logic App)
             3. (bonus) les liens vers les vidéos
                
-    - Les bonus sont soumis sous forme de vidéo Youtube [unlisted](https://support.google.com/youtube/answer/157177?sjid=4795422317307104878-EU#unlisted&zippy=%2Cunlisted-videos) faisant au plus 3 minutes chacune (le plus court le mieux)
+    - Les bonus sont soumis sous forme de vidéo Youtube [unlisted](https://support.google.com/youtube/answer/157177?sjid=4795422317307104878-EU#unlisted&zippy=%2Cunlisted-videos) faisant au plus 3 minutes chacune (le plus court le mieux). Si nécessaire, exécutez le code localement sur votre poste ou augmentez le nombre de CPU de votre Codespace pour mieux mettre en avant l'amélioration des performances.
         - *Bonus 1* : une vidéo démontrant le gain de performance obtenu par la parallélisation sur le traitement local (section 3.3)
         - *Bonus 2* : une vidéo démontrant le fonctionnement de la Logic App lisant des images depuis le Blob Storage (dépôt de plusieurs fichiers, détails du run de la Logic App, apparition des fichiers traités dans le Blob Storage)
     
