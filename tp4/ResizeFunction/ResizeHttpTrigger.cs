@@ -20,7 +20,7 @@ namespace tp4
         }
 
         [Function("ResizeHttpTrigger")]
-        public async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Anonymous, "post")] HttpRequest req)
+        public async Task<IActionResult> Run([HttpTrigger(AuthorizationLevel.Function, "post")] HttpRequest req)
         {
             _logger.LogInformation("C# HTTP trigger function processed a request.");
 
