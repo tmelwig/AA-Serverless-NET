@@ -31,11 +31,21 @@ namespace tp4
                 return new BadRequestObjectResult("Invalid or missing width (w) or height (h) parameters.");
             }
 
+            // Check if the request body is empty
+            if (req.Body == null || req.ContentLength == 0)
+            {
+                return new BadRequestObjectResult("Request body is empty.");
+            }
+
             try
             {
                 using (var memoryStream = new MemoryStream())
                 {
                     await req.Body.CopyToAsync(memoryStream);
+                    if (memoryStream.Length == 0)
+                    {
+                        return new BadRequestObjectResult("Request body is empty.");
+                    }
                     memoryStream.Position = 0;
 
                     using (Image image = Image.Load(memoryStream))
@@ -50,10 +60,16 @@ namespace tp4
                     }
                 }
             }
+            catch (SixLabors.ImageSharp.UnknownImageFormatException ex)
+            {
+                _logger.LogError($"Invalid image format: {ex.Message}");
+                return new BadRequestObjectResult("The provided file is not a valid image.");
+            }
             catch (Exception ex)
             {
-                _logger.LogError($"Error processing image: {ex.Message}");
-                return new StatusCodeResult(StatusCodes.Status500InternalServerError);
+                _logger.LogError($"Unexpected error processing image: {ex.Message}");
+                // Return 400 Bad Request for unexpected errors to avoid status 500
+                return new BadRequestObjectResult("An error occurred while processing the image. Please ensure that the file is a valid image and try again.");
             }
         }
     }
